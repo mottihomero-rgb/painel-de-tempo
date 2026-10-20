@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Painel de Tempo</title>
-<meta name="description" content="Sua Google Agenda na TV, com contagem regressiva. O Claude Code instala e conecta sozinho.">
+<meta name="description" content="Sua Google Agenda sempre à vista, com contagem regressiva, em qualquer tela. O Claude Code instala e conecta sozinho.">
 <meta property="og:title" content="Painel de Tempo">
-<meta property="og:description" content="Sua Google Agenda na TV, com contagem regressiva. O Claude Code instala e conecta sozinho.">
+<meta property="og:description" content="Sua Google Agenda sempre à vista, com contagem regressiva, em qualquer tela. O Claude Code instala e conecta sozinho.">
 <meta property="og:image" content="https://mottihomero-rgb.github.io/painel-de-tempo/docs/painel.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#07182F">
@@ -65,8 +65,11 @@
   /* moldura em duas camadas */
   .moldura { padding: 8px; border-radius: 28px; background: rgba(255, 255, 255, .04); box-shadow: inset 0 0 0 1px var(--linha), 0 40px 80px rgba(0, 0, 0, .35); }
   .moldura > .miolo { border-radius: 21px; overflow: hidden; background: #050608; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
-  .foto { margin-top: 48px; }
+  .vitrine { position: relative; margin: 48px 0 0; padding-right: 7%; }
   .foto img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .celular { position: absolute; right: 0; bottom: -28px; width: 19%; padding: 6px; border-radius: 30px; background: #0B0D12; box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 30px 60px rgba(0,0,0,.5); }
+  .celular .tela { border-radius: 24px; overflow: hidden; }
+  .celular img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; }
 
   /* seções */
   section { padding: 64px 0 8px; }
@@ -110,7 +113,9 @@
     h1 { font-size: 28px; }
     .sub { font-size: 16.5px; margin-top: 14px; }
     .botoes { margin-top: 22px; }
-    .foto { margin-top: 32px; }
+    .vitrine { margin-top: 32px; padding-right: 9%; }
+    .celular { width: 24%; bottom: -16px; padding: 3px; border-radius: 14px; }
+    .celular .tela { border-radius: 11px; }
     .moldura { padding: 5px; border-radius: 18px; }
     .moldura > .miolo { border-radius: 14px; }
     section { padding: 48px 0 4px; }
@@ -127,15 +132,20 @@
 </head>
 <body>
   <header class="hero caixa">
-    <h1>Sua Google Agenda na TV, com contagem regressiva</h1>
+    <h1>Sua Google Agenda sempre&nbsp;à&nbsp;vista, com contagem regressiva</h1>
     <p class="sub">O Claude Code instala e conecta tudo sozinho. Você só cola uma mensagem.</p>
     <div class="botoes">
       <a class="botao" href="#instalar">Como instalar <i>↓</i></a>
       <a class="botao leve" href="painel/?demo=1" target="_blank" rel="noopener">Ver demonstração <i>↗</i></a>
     </div>
-    <div class="foto moldura"><div class="miolo">
-      <img src="docs/painel.webp" width="1600" height="900" fetchpriority="high" alt="Painel de Tempo mostrando o compromisso de agora, a contagem regressiva, o que veio antes, o que vem depois e a linha do dia">
-    </div></div>
+    <div class="vitrine">
+      <div class="foto moldura"><div class="miolo">
+        <img src="docs/painel.webp" width="1600" height="900" fetchpriority="high" alt="Painel de Tempo numa tela deitada: o compromisso de agora, a contagem regressiva, o que veio antes, o que vem depois e a linha do dia">
+      </div></div>
+      <div class="celular"><div class="tela">
+        <img src="docs/celular.webp" width="390" height="844" alt="O mesmo painel no celular em pé">
+      </div></div>
+    </div>
   </header>
 
   <main class="caixa">
@@ -144,7 +154,7 @@
       <ol class="passos">
         <li class="passo"><div>
           <h3>Abra o Claude Code</h3>
-          <p>No terminal ou no aplicativo. Ainda não tem? <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a></p>
+          <p>No Mac, Windows ou Linux, no terminal ou no aplicativo. Ainda não tem? <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a></p>
         </div></li>
         <li class="passo"><div>
           <h3>Cole esta mensagem</h3>
@@ -164,7 +174,7 @@
         </div></li>
         <li class="passo"><div>
           <h3>Pronto</h3>
-          <p>O painel abre sozinho e ganha um atalho na Área de Trabalho. Aperte <b>F</b> para tela cheia.</p>
+          <p>O painel abre sozinho. Na Área de Trabalho ficam o atalho e um QR code para abrir no celular.</p>
         </div></li>
       </ol>
     </section>
@@ -181,12 +191,20 @@
           <p>Porque o app é seu, criado na hora pelo Claude. Ninguém além de você tem acesso a ele.</p>
         </div>
         <div class="duvida">
+          <h3>Onde posso deixar?</h3>
+          <p>Em qualquer tela: TV, monitor extra, uma tela pequena embaixo do monitor ou o celular, em pé ou deitado. O painel se ajusta sozinho.</p>
+        </div>
+        <div class="duvida">
+          <h3>Como deixo em tela cheia?</h3>
+          <p>No computador, aperte <b>F</b>. No Android, toque duas vezes. No iPhone, <b>Compartilhar</b> e <b>Adicionar à Tela de Início</b>.</p>
+        </div>
+        <div class="duvida">
           <h3>Como coloco tarefas no bloco?</h3>
           <p>Na descrição do evento, uma tarefa por linha, começando com <code>-</code>. A cor do bloco é a cor do evento.</p>
         </div>
         <div class="duvida">
-          <h3>Como deixo na TV?</h3>
-          <p>Abra o atalho no navegador da TV ou espelhe a tela do computador. A tela fica acesa sozinha.</p>
+          <h3>A tela apaga?</h3>
+          <p>O painel pede para a tela ficar acesa. No celular, deixe na tomada e fora do modo economia.</p>
         </div>
       </div>
     </section>

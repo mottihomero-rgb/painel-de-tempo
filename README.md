@@ -1,6 +1,6 @@
 # Painel de Tempo
 
-Uma tela para a TV (ou um monitor) que mostra o compromisso de **agora** da sua Google Agenda, em letra grande, com a contagem regressiva até ele acabar.
+Um painel para deixar à vista em qualquer tela (TV, monitor extra, tela pequena embaixo do monitor, celular em pé ou deitado) com o compromisso de **agora** da sua Google Agenda, em letra grande, e a contagem regressiva até ele acabar.
 
 ![Painel de Tempo](docs/painel.png)
 
@@ -17,7 +17,7 @@ Uma tela para a TV (ou um monitor) que mostra o compromisso de **agora** da sua 
 
 ## Instalar com o Claude Code (o Claude faz tudo)
 
-Abra o Claude Code e cole:
+Funciona no Mac, no Windows e no Linux. Abra o Claude Code e cole:
 
 ```
 Instala o Painel de Tempo e conecta na minha Google Agenda. Baixa https://github.com/mottihomero-rgb/painel-de-tempo para ~/.claude/skills/painel-de-tempo e segue o SKILL.md de lá do começo ao fim, fazendo tudo sozinho. Só me chama quando eu precisar clicar em algo no navegador.
@@ -29,7 +29,7 @@ O Claude prepara o computador, cria a conexão na sua conta Google com a ferrame
 2. **Chave:** ligue **Google Apps Script API** na página que o Claude abrir.
 3. **Agenda:** **Revisar permissões**, **Avançado**, **Acessar Painel de Tempo** e **Continuar**.
 
-No fim aparece um atalho **Painel de Tempo** na Área de Trabalho. O passo a passo que o Claude segue está em [`SKILL.md`](SKILL.md).
+No fim ficam na Área de Trabalho o atalho **Painel de Tempo** e um QR code para abrir no celular. O passo a passo que o Claude segue está em [`SKILL.md`](SKILL.md).
 
 ---
 
@@ -42,7 +42,7 @@ Leva uns 5 minutos e é feito uma vez só.
 3. Em **Configurações do projeto**, marque **Mostrar arquivo de manifesto "appsscript.json" no editor**. No **Editor**, troque o `appsscript.json` pelo de [`google/appsscript.json`](google/appsscript.json). Isso faz o script pedir **só leitura** da agenda.
 4. Salve. Escolha a função **testar** e clique em **Executar**. Em **Revisar permissões**, escolha a conta, **Avançado**, **Acessar Painel de Tempo (não seguro)** e **Continuar**.
 5. **Implantar > Nova implantação**. Já vem **App da Web**, executando como **Eu**, acesso **Qualquer pessoa**. Clique em **Implantar** e copie o URL que termina em `/exec`.
-6. Abra o [painel](https://mottihomero-rgb.github.io/painel-de-tempo/painel/), cole o endereço e clique em **Conectar**.
+6. Abra o [painel](https://mottihomero-rgb.github.io/painel-de-tempo/painel/), cole o endereço e clique em **Conectar**. Para levar a outro aparelho, use o link `https://mottihomero-rgb.github.io/painel-de-tempo/painel/#agenda=` seguido do seu endereço.
 
 > O endereço `/exec` funciona como senha: quem tiver ele consegue ver os seus compromissos. Não publique.
 
@@ -50,8 +50,11 @@ Leva uns 5 minutos e é feito uma vez só.
 
 ## Usar
 
-- **Teclas:** `F` tela cheia · `S` som (bipe quando começa um compromisso e 5 minutos antes de acabar) · `C` troca a agenda.
-- **TV:** abra o atalho no navegador da TV ou espelhe a tela. O painel tenta manter a tela acesa sozinho.
+- **Qualquer tela:** deitada (TV, monitor, faixa baixa, celular deitado) o painel aparece inteiro, em escala; em pé (celular, monitor vertical) vira uma coluna só.
+- **Computador:** `F` tela cheia (ou dois cliques) · `S` som (bipe quando começa um compromisso e 5 minutos antes de acabar) · `C` troca a agenda.
+- **Android:** abra o link no Chrome e toque duas vezes para tela cheia. Para virar ícone: menu ⋮ > Adicionar à tela inicial.
+- **iPhone:** abra no Safari e use Compartilhar > Adicionar à Tela de Início; pelo ícone ele abre em tela cheia.
+- O painel pede para a tela ficar acesa. No celular, deixe na tomada e fora do modo economia.
 - Evento de **dia inteiro** e convite **recusado** não aparecem.
 - Quando dois compromissos se encavalam, o **mais curto ganha** naquele pedaço.
 - Entre um compromisso e outro aparece **Livre**, com a contagem até o próximo.
